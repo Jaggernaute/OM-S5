@@ -4,13 +4,16 @@
 %%       an Issue on GitHub: https://github.com/jdujava/TeXtured     %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Enable built-in LaTeX support for PDF/A compliance (must be before `\documentclass`)
+%% Enable built-in LaTeX support for PDF/A compliance (must be before
+% `\documentclass`)
 \DocumentMetadata{pdfversion=1.7, pdfstandard=A-2u}
 \input{preamble/pdfA-compliance/glyphtounicode}
 
 %% NOTE: Choose the desirable page layout version (electronic vs print)
-\documentclass[12pt,a4paper]{report}                      % single-side (electronic)
-% \documentclass[12pt,a4paper,openright,twoside]{report}  % two-sided (for printing)
+\documentclass[12pt,a4paper]{report}                      %
+% single-side (electronic)
+% \documentclass[12pt,a4paper,openright,twoside]{report}  % two-sided
+% (for printing)
 
 \newif\ifWIP
 \newif\ifCENSOR
@@ -27,10 +30,15 @@
 %% Only uncommented files are included (faster compilation)
 %% NOTE: If no files are uncommented, all files are included
 \includeonlysmart{
-    frontmatter/title,
-    chapters/Introduction,
-    chapters/QuickSummary,
-    chapters/Appendix,
+  frontmatter/title,
+  chapters/QuickSummary,
+  chapters/Appendix,
+  chapters/2-distance,
+  chapters/1-evf,
+  chapters/3-norme,
+  chapters/4-convergeance,
+  chapters/5-produit-scalaire,
+  chapters/6-systemes
 }
 
 \begin{document}
@@ -43,11 +51,16 @@
 
 \contentsandlists
 
-\include{chapters/Introduction}
+% \include{chapters/Introduction}
 \include{chapters/QuickSummary}
 
 \mainmatter
-
+\include{chapters/1-evf}
+\include{chapters/2-distance}
+\include{chapters/3-norme}
+\include{chapters/4-convergeance}
+\include{chapters/5-produit-scalaire}
+\include{chapters/6-systemes}
 
 \appendix
 \include{chapters/Appendix}
