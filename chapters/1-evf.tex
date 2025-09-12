@@ -1,34 +1,81 @@
-\chapter{Espaces vectoriels de fonctions}\label{chap:evf}
+\chapter{Espaces vectoriels de fonctions} \label{chap:evf}
 
+\section{Rappel sur les espaces vectoriels}
+Un \emph{espace vectoriel de fonctions} est un espace dont les
+vecteurs sont des fonctions. Le concept d'espace vectoriel étant en
+fait de \emph{créer une structure mathématique abstraite} permettant de
+faire des calculs géométriques dans des ensembles qui n'ont a priori
+pas vocation à être appréhendés de façon géométrique, comme des
+ensembles de \textbf{matrices ou de fonctions}.
+
+\section{Introduction}
 Dans ce chapitre, les espaces vectoriels considérés sont construits
-avec des scalaires qui sont, soit des nombres réels, soit des nombres complexes.
-L’ensemble des scalaires utilisés seront notés \(\mathbb{K}\). On préciseras
-\(\mathbb{K} = \R\) ou bien \(\mathbb{K} = \C\).
-
-\begin{definition}{Espace vectoriel de polynômes du premier degré}{}
-  On note
-  \[
-    \mathcal{P}_1(\mathbb{K}) = \{\, a_0 + a_1x \mid a_0, a_1 \in
-    \mathbb{K}\,\}.
-  \]
-  L’ensemble $\mathcal{P}_1(\mathbb{K})$, muni de l’addition des
-  polynômes et de la multiplication externe par un scalaire,
-  forme un espace vectoriel noté
-  \[
-    \bigl(\mathcal{P}_1(\mathbb{K}), +, \cdot \bigr).
-  \]
-
-\begin{example}{Base et dimension}
-  La famille $\{1, x\}$ constitue une base canonique de
-  $\mathcal{P}_1(\mathbb{K})$.
-  Ainsi, $\dim \mathcal{P}_1(\mathbb{K}) = 2$.
-\end{example}
-\end{definition}
+sur un corps quelconque not\'e $\mathbb{K}$, mais en pratique on aura
+\textbf{toujours} $\mathbb{K}=\mathbb{R}$ ou $\mathbb{K}=\mathbb{C}$.
 
 \begin{Note}
-  Aussi abstraite que paraisse cette idée : voir des fonctions comme
-  des vecteurs(des points) d’un espace vectoriel, elle est en réalité d’une
-  extraordinaire portée. C’est le point de départ de théories et de techniques
-  utiles bien au-delà des mathématiques\par
-  \emph{Cours de M.RUMIN réécrit par J.KULCSAR, S2PMCP, Université Paris-Saclay}
+	Pour aller beaucoup plus loin sur les structures alg\'ebriques :
+	\begin{itemize}
+		\item \href{Structures algébriques : THE poster}{https://rancune.org/sciences/2022/03/23/structures-algebriques.html}
+		\item \emph{Les maths en tête : Algèbre} par \textbf{Xavier Gourdon}\Cite{Gourdon2009}
+	\end{itemize}
 \end{Note}
+
+\section{Exemples}
+
+\subsection{Polynômes de degré $\leq n$}
+On note~:
+\[
+  F_n = \Bigl\{\, P(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n
+  \;\Bigm|\; a_i \in \mathbb{K},\; n \geq 1 \,\Bigr\}.
+\]
+Muni de l’addition des fonctions et de la multiplication externe par
+un scalaire,
+$(F_n,+,\cdot)$ est un espace vectoriel de dimension $n+1$.
+
+\medskip
+La base canonique de $F_n$ est
+\[
+  \mathcal{B}_n = \{1, x, x^2, \dots, x^n\}.
+\]
+
+Soient $P(x)=\sum_{i=0}^n a_i x^i$ et $Q(x)=\sum_{i=0}^n b_i x^i$ :
+\begin{itemize}
+  \item \textbf{Addition :}
+    \[
+        +:\begin{cases}E\times E\rightarrow E\\(u,v)\mapsto u+v\end{cases},\quad
+        (P+Q)(x) = \sum_{i=0}^n (a_i+b_i)x^i \in F_n.
+    \]
+
+  \item \textbf{Multiplication par un scalaire :} pour $\alpha \in \mathbb{K}$,
+    \[
+        \cdot:\begin{cases}\mathbb{K}\times E\rightarrow E\\(\lambda,u)\mapsto \lambda u\end{cases},\quad
+        (\alpha P)(x) = \sum_{i=0}^n (\alpha a_i)x^i \in F_n.
+    \]
+\end{itemize}
+
+\subsubsection{Cas particulier $n=2$}
+Si $n=2$, tout polynôme s’écrit
+\[
+  P(x) = a_0 + a_1x + a_2x^2.
+\]
+L’espace $F_2$ est de dimension $3$, de base $(1,x,x^2)$, et est en
+bijection naturelle avec
+$\mathbb{K}^3$ via
+\[
+  P(x) \longmapsto (a_0,a_1,a_2).
+\]
+
+\subsection{Séries trigonométriques}
+On considère l’ensemble
+\[
+  G_I = \Bigl\{\, f(x) = \sum_{n\in I} \alpha_n e^{inx}
+  \;\Bigm|\; I \subset \mathbb{Z},\; \alpha_n \in [a,b] \,\Bigr\}.
+\]
+Pour $f,g \in G_I$ et $\lambda \in \mathbb{K}$ :
+\[
+  (f+g)(x) = f(x)+g(x),
+  \qquad
+  (\lambda f)(x) = \lambda f(x).
+\]
+Ainsi, $(G_I,+,\cdot)$ est également un espace vectoriel.
