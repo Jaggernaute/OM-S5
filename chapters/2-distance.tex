@@ -1,1 +1,140 @@
-\chapter{Distances et métriques}\label{chap:distance}
+\chapter{Normes et distances dans les espaces vectoriels} \label{chap:norme}
+
+\section{Espaces vectoriels norm\'es}
+
+\begin{Note}
+Le d\'eveloppement des espaces vectoriels norm\'es (en particulier de dimensions
+infinies) est d’abord d\^u \`a Hilbert ; Banach compl\'eta largement cette
+th\'eorie dans les ann\'ees 1930.
+\end{Note}
+
+Une \emph{norme} sur un \(\mathbb{K}\)-espace vectoriel \(E\) (sur \(\mathbb{R}\) ou \(\mathbb{C}\)) est une application
+\[
+E \to \mathbb{R}^+,\quad u \mapsto \|u\|
+\]
+qui associe \`a chaque vecteur \(u\in E\) un nombre r\'eel positif, not\'e \(\|u\|\), et v\'erifie les trois propri\'et\'es fondamentales :
+\begin{itemize}
+  \item (s\'eparation) \(\|u\|=0 \iff u=0\) : seule la longueur du vecteur nul est nulle ;
+  \item (homog\'en\'eit\'e) Pour tout \(\lambda\in\mathbb{K}\), pour tout \(x\in E\), \(\|\lambda x\|=|\lambda|\cdot\|x\|\) ;
+  \item (in\'egalit\'e triangulaire) Pour tout \((u,v)\in E^2\), \(\|u+v\|\le \|u\|+\|v\|\).
+\end{itemize}
+
+Muni d’une norme, \(E\) est appel\'e un \(\mathbb{K}\)-espace vectoriel norm\'e (en abr\'eg\'e e.v.n).
+
+\begin{Note}
+    \emph{Les maths en t\^ete : Analyse} \Cite{Gourdon-analyse} \textit{Topologie sur les espaces m\'etriques
+    et les espaces vectoriels norm\'es}, \texttt{1.1} Normes et Distances.
+\end{Note}
+
+Ainsi, un \emph{espace vectoriel norm\'e} est un espace vectoriel muni d’une telle norme.
+Intuitivement, la norme \(\|u\|\) repr\'esente la «longueur» du vecteur \(u\) dans l’espace.
+L’in\'egalit\'e triangulaire traduit la propri\'et\'e g\'eom\'etrique selon laquelle le chemin direct
+est plus court que tout chemin bris\'e par un point interm\'ediaire.
+
+On appelle aussi \emph{boule unit\'e} l’ensemble
+\[
+B(0,1) = \{x\in E : \|x\|\le 1\}.
+\]
+
+\section{Exemples de normes}
+
+\subsection{Normes dans \(\mathbb{R}^n\)}
+
+Dans \(\left(\mathbb{R}^n,+,\cdot\right)\), plusieurs normes usuelles sont d\'efinies par des formules explicites.
+Pour \(x=(x_1,\dots,x_n)\in\mathbb{R}^n\) on d\'efinit :
+\[
+\|x\|_2 = \sqrt{x_1^2+\cdots+x_n^2},
+\qquad
+\|x\|_1 = \sum_{i=1}^n |x_i|,
+\qquad
+\|x\|_\infty = \max_{1\le i\le n}|x_i|.
+\]
+
+Ces trois applications satisfont bien les axiomes d’une norme.
+La norme \(\|\cdot\|_2\) est la norme euclidienne usuelle.
+Plus g\'en\'eralement, pour tout \(\alpha\in[1,\infty)\) on d\'efinit la \emph{norme \(\ell^\alpha\)} par :
+\[
+\|x\|_\alpha = \Bigl(\sum_{i=1}^n |x_i|^\alpha\Bigr)^{1/\alpha}.
+\]
+C’est une cons\'equence de l’in\'egalit\'e de Minkowski.
+
+\subsection{Espaces \(\ell^\alpha\) de suites sommables}
+
+Pour \(1\le \alpha<\infty\), l’espace \(\ell^\alpha\) est l’ensemble des suites \(x=(x_n)_{n\ge1}\) telles que
+\[
+\sum_{n=1}^\infty |x_n|^\alpha < \infty.
+\]
+On y d\'efinit la norme
+\[
+\|x\|_\alpha = \Bigl(\sum_{n=1}^\infty |x_n|^\alpha\Bigr)^{1/\alpha}.
+\]
+
+Pour \(\alpha=2\), l’espace \((\ell^2,\|\cdot\|_2)\) est un espace de Hilbert muni du produit scalaire usuel.
+Ces espaces \((\ell^\alpha,\|\cdot\|_\alpha)\) sont des espaces de Banach, c’est-\`a-dire complets pour la distance associ\'ee \`a la norme.
+
+\subsection{Fonctions continues sur \([a,b]\)}
+
+Soit \(C([a,b])\) l’espace vectoriel des fonctions continues \(f:[a,b]\to\mathbb{K}\)
+(avec \(\mathbb{K}=\mathbb{R}\) ou \(\mathbb{C}\)).
+On y d\'efinit plusieurs normes classiques :
+\[
+\|f\|_\alpha = \Bigl(\int_a^b |f(x)|^\alpha\,dx\Bigr)^{1/\alpha}, \qquad 1\le \alpha<\infty,
+\]
+et la norme du \emph{sup} :
+\[
+\|f\|_\infty = \sup_{x\in[a,b]} |f(x)|.
+\]
+
+La norme \(\|f\|_\alpha\) mesure la « taille moyenne » de la fonction,
+tandis que \(\|f\|_\infty\) mesure la valeur maximale atteinte par la fonction.
+\((C([a,b]),\|\cdot\|_\infty)\) est un espace de Banach.
+
+\subsection{Espaces \(L^\alpha\) et \'egalit\'e presque partout}
+
+Dans un cadre plus g\'en\'eral, on consid\`ere un espace mesur\'e \((X,\mu)\).
+On d\'efinit \(L^\alpha(X)\) comme l’ensemble des fonctions mesurables \(f\) telles que
+\[
+\int_X |f(x)|^\alpha \, d\mu(x) < \infty.
+\]
+
+On identifie deux fonctions \(f\) et \(g\) si \(f(x)=g(x)\) pour presque tout \(x\) (c’est-\`a-dire sauf sur un ensemble de mesure nulle).
+On pose alors
+\[
+\|f\|_\alpha = \Bigl(\int_X |f(x)|^\alpha\,d\mu(x)\Bigr)^{1/\alpha}.
+\]
+
+Ces espaces sont norm\'es, complets pour \(\alpha\ge 1\).
+En particulier, \(L^1\) est l’espace des fonctions absolument int\'egrables
+et \(L^2\) celui des fonctions de carr\'e int\'egrable.
+
+\section{Distances et espaces m\'etriques}
+
+\subsection{D\'efinition}
+
+Une \emph{distance} (ou \emph{m\'etrique}) sur un ensemble \(E\) est une application
+\[
+d:E\times E\to [0,+\infty[
+\]
+v\'erifiant, pour tous \(x,y,z\in E\) :
+\begin{itemize}
+  \item \(d(x,y)=0 \iff x=y\) ;
+  \item \(d(x,y)=d(y,x)\) (sym\'etrie) ;
+  \item \(d(x,z)\le d(x,y)+d(y,z)\) (in\'egalit\'e triangulaire).
+\end{itemize}
+
+Un tel couple \((E,d)\) est appel\'e \emph{espace m\'etrique}.
+
+\subsection{Distance associ\'ee \`a une norme}
+
+Si \(E\) est un espace vectoriel norm\'e, on d\'efinit la distance induite par la norme :
+\[
+d(u,v) = \|u-v\|.
+\]
+
+Cette distance satisfait les axiomes pr\'ec\'edents et repr\'esente la longueur du segment joignant \(u\) \`a \(v\).
+Gr\^ace \`a \(d\), on d\'efinit les boules ouvertes
+\[
+B(u,r) = \{x\in E : \|x-u\|<r\},
+\]
+ce qui induit une topologie naturelle sur \(E\).
+Ainsi, tout espace vectoriel norm\'e est aussi un espace m\'etrique.

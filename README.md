@@ -11,8 +11,7 @@ convergence et d’orthogonalité.
 
 ## Contenu
 - **Espaces vectoriels de fonctions** : Structure des espaces vectoriels appliquée aux polynômes, séries trigonométriques, suites et fonctions continues.
-- **Normes et espaces vectoriels normés** : Définition des normes usuelles ($\ell^1$, $\ell^2$, norme du sup) et applications aux suites et fonctions.
-- **Distances et métriques** : Définition générale d’une distance, propriétés, et distance induite par une norme.
+- **Normes et espaces vectoriels normés** : Définition des normes usuelles ($\ell^1$, $\ell^2$, norme du sup) et applications aux suites et fonctions. Ainsi que la générale d’une distance, propriétés, et distance induite par une norme.
 - **Convergences de suites de fonctions** : Convergence simple, en moyenne ($L^1$), en moyenne quadratique ($L^2$), convergence uniforme et relations entre elles.
 - **Produit scalaire et norme hermitienne** : Définition, inégalité de Cauchy-Schwarz, norme hermitienne.
 - **Systèmes orthogonaux** : Orthogonalité, orthonormalité, sous-espaces orthogonaux, extension du théorème de Pythagore.
@@ -21,9 +20,8 @@ convergence et d’orthogonalité.
 | Section | Statut |
 |---------|--------|
 | Espaces vectoriels de fonctions | 🟢 Complété |
-| Normes et espaces vectoriels normés | 🟡 En cours  |
-| Distances et métriques | 🔴 À faire |
-| Convergences de suites de fonctions | 🔴 À faire |
+| Normes et espaces vectoriels normés | 🟢 Complété  |
+| Convergences de suites de fonctions | 🟡 En cours |
 | Produit scalaire et norme hermitienne | 🔴 À faire |
 | Systèmes orthogonaux | 🔴 À faire |
 
